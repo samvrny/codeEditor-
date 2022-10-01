@@ -18,12 +18,47 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        title: 'Webpack Plugin'
+      }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'service-worker.js',
+      }),
+      new WebpackPwaManifest({
+        name: 'Code Editor',
+        short_name: 'JATE',
+        description: 'School project text editor',
+        //background_color: '#7eb4e2',
+        //theme_color: '#7eb4e2',
+        start_url: './',
+        publicPath: './',
+      }),
     ],
 
     module: {
       rules: [
-        
+        {
+          test: /\.(png|svg|jgp|jpeg|gif)$/i,
+          type: 'asset/resource',
+        },
+        {
+          test: /\.css$/i,
+          use: ['style-loader', 'css-loader'],
+        },
+        {
+          test: /\.m?js$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'babel-loader',
+            options: {
+              presets: [
+                ['@babel/preset-env', { targets: 'defaults' }]
+              ]
+            }
+          }
+        }
       ],
     },
   };
