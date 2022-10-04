@@ -12,7 +12,7 @@ Once the dependancies are installed, run nmp start from the command line in the 
 [Code Editor](https://morning-peak-35135.herokuapp.com/)
 
 Here is an image of the deployed application:
-[](./client/src/images/code-editor.png)
+![](./client/src/images/code-editor.png)
 
 ## Contributing
 Made by Samuel Varney
