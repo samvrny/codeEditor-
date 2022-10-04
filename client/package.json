@@ -1,5 +1,5 @@
 {
-  "name": "Code-Editor",
+  "name": "code-editor",
   "scripts": {
     "dev": "webpack-dev-server",
     "build": "webpack --mode development",
